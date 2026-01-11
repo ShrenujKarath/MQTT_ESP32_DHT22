@@ -1,0 +1,332 @@
+[
+    {
+        "id": "ae083088312a7866",
+        "type": "tab",
+        "label": "DHT22 Flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d6a4c7b18350418f",
+        "type": "mqtt in",
+        "z": "ae083088312a7866",
+        "name": "",
+        "topic": "ESP/DHT22/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "a3b34bfd5b9b8867",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 100,
+        "wires": [
+            [
+                "df9c3797868f07a4",
+                "ee6931e1dd5919f7"
+            ]
+        ]
+    },
+    {
+        "id": "9dc94da0651ecb1b",
+        "type": "mqtt in",
+        "z": "ae083088312a7866",
+        "name": "",
+        "topic": "ESP/DHT22/humidity",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "a3b34bfd5b9b8867",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "904199b51ab00756",
+                "52c185d3c653cb8f"
+            ]
+        ]
+    },
+    {
+        "id": "df9c3797868f07a4",
+        "type": "debug",
+        "z": "ae083088312a7866",
+        "name": "temprature debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "904199b51ab00756",
+        "type": "debug",
+        "z": "ae083088312a7866",
+        "name": "humidity debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "52c185d3c653cb8f",
+        "type": "ui-gauge",
+        "z": "ae083088312a7866",
+        "name": "Humidity ",
+        "group": "22194307b8a051ae",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#b0d6dd",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#33d0db",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#1576d1",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 720,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee6931e1dd5919f7",
+        "type": "ui-chart",
+        "z": "ae083088312a7866",
+        "group": "22194307b8a051ae",
+        "name": "Temperature ",
+        "label": "Temperature (°C)",
+        "order": 9007199254740991,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Value",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "50",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 8,
+        "className": "",
+        "interpolation": "linear",
+        "x": 730,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3b34bfd5b9b8867",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "22194307b8a051ae",
+        "type": "ui-group",
+        "name": "DHT22 Data",
+        "page": "03b7bd90403cf15f",
+        "width": 6,
+        "height": 1,
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "03b7bd90403cf15f",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "30ef32955a43e79b",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "075e99a624793071",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "30ef32955a43e79b",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "075e99a624793071",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "e285e2ba3b80aeb2",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.1"
+        }
+    }
+]

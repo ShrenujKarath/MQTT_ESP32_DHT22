@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node-RED
+node_modules/
+*.log
+
+# Arduino / ESP32 build files
+*.bin
+*.elf
+*.hex
+
+# Temporary files
+*.tmp
+*.bak
